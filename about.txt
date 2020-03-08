@@ -1,0 +1,83 @@
+Title
+
+Shape Them Up
+
+--------------------------------------
+
+Description
+
+Shape Them Up is a side scroller action minimalistic game.
+You control a square in the lower left corner of the screen, trying to avoid or
+destroy the evil pentagons coming your way.
+
+Mechanics:
+  Jump (press up):
+    Can be used anytime while grounded
+    Can be used midair once refreshed*
+    Height and duration are fixed
+  Dash (press right):
+    Can be used anytime while grounded
+    Can be used midair once (Can be refreshed*)
+      If used midair, halts your descent
+    If you collide with an enemy mid dash, the enemy will be destroyed
+  Fast Fall (press down):
+    Can be used midair to halt horizontally
+    If you collide with an enemy mid fast fall, the enemy will be destroyed and
+    you will bounce off of it.
+  Combos:
+    A combo is a streak of N enemies you kill before touching the ground again.
+    Every 5 enemies, you will be healed 1HP.
+    Every 10 enemies, if you are at max health, you will increase your max health
+    Also, longer combos net you more points per kill.
+      At 4 enemies or less, the next kill will be worth 1 point.
+      At 9 or less, 2 points.
+      At 14 or less, 3 points.
+    And so on
+  Speed:
+    The more enemies you kill, the faster you go, so you will have to think faster
+    in order to keep these combos going.
+    If you get hit, the speed will reset.
+
+* Destroying an enemy with a dash will refresh both your dash and your jump,
+while destroying an enemy with a Fast Fall will only refresh your midair dash.
+Touching the ground also refreshes your movements.
+
+--------------------------------------
+
+How the game matches the theme
+
+Every action in the game has 2 or more purposes:
+The Jump can be used to position yourself to dash into enemies, but also to avoid 
+hitting them when not dashing. The Dash can be used not only to kill enemies, but 
+also to position yourself above them for a Fastfall kill. Killing enemies not only
+gives you points but also refreshes your abilities so you can keep killing and 
+increase your combo. Killing also increase the speed of the game, making it more 
+difficult. Comboing enemies increase your score and the amount of points you make 
+for each kill but also heal you, incntivating you to go for those big combos, specially 
+when low on health. 
+Getting hit also has two purposes: it makes you more careful by bringing you close 
+to the end but it also slows the game down, so you can have more time to think. 
+Those are just a few of the examples, but with a careful look, you can see that 
+everything in the game has more than one purpose.
+
+--------------------------------------
+
+Platforms
+
+Meant to run on Windows
+
+--------------------------------------
+
+Third party resources
+
+Game engine: Unity3D v5.6.2f1 Personal (64bit)
+Sound effect creation: Bfxr and Audacity
+
+--------------------------------------
+
+Credits
+
+Murilo "Mickey" Bernard Theodoro      Design, Coding
+William "VVilliam" Quelho Ferreira    Design, Sound, Coding
+
+And a special thanks to all the people who have contributed to the tools above.
