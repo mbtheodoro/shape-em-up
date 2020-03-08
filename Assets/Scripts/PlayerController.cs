@@ -15,7 +15,13 @@ public enum PlayerState
 
 public class PlayerController : MonoBehaviour
 {
-	#region REFERENCES
+    #region REFERENCES
+    public ShakeConfig damageShakeConfig;
+    public ShakeConfig jumpShakeConfig;
+    public ShakeConfig stompShakeConfig;
+    public ShakeConfig dashHitShakeConfig;
+
+    public ShakeBehaviour cameraShake;
 	public GameController gameController;
 
 	public GameObject deathEffects;
@@ -154,6 +160,7 @@ public class PlayerController : MonoBehaviour
 				hasDash = false;
 			break;
 		case PlayerState.HIT:
+            cameraShake.Shake(damageShakeConfig.pos, damageShakeConfig.time, damageShakeConfig.delay);
 			AudioSource.PlayClipAtPoint (hitSFX, Camera.main.transform.position, 0.6f);
 			DecreaseHealth (1);
 			recoiling = true;
@@ -393,12 +400,14 @@ public class PlayerController : MonoBehaviour
 	{
 		if (currentState == PlayerState.DASHING) {
 			RefreshAbilities ();
-			other.gameObject.GetComponent<EnemyController> ().Kill ();
-			score.Hit ();
+			other.gameObject.GetComponent<EnemyController> ().Kill (0.05f);
+            //cameraShake.Shake(dashHitShakeConfig.pos, dashHitShakeConfig.time, dashHitShakeConfig.delay);
+            score.Hit ();
 			// TODO maybe increase dash time?
 		} else if (currentState == PlayerState.FASTFALLING) {
-			other.gameObject.GetComponent<EnemyController> ().Kill ();
-			JumpTo (transform.position.y + bounceHeight, bounceDuration);
+			other.gameObject.GetComponent<EnemyController> ().Kill (0.02f);
+            cameraShake.Shake(stompShakeConfig.pos, stompShakeConfig.time, stompShakeConfig.delay);
+            JumpTo (transform.position.y + bounceHeight, bounceDuration);
 			hasDash = true;
 			score.Hit ();
 		}

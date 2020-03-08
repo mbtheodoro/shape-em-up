@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour {
 	public ScoreManager scoreManager;
 	public ParticleSystem particleSystem;
 
-	private GameState currentState = GameState.START;
+    private GameState currentState = GameState.START;
 	private GameState previousState = GameState.NULL;
 
 	public GameState CurrentState 

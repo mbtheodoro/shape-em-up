@@ -18,9 +18,21 @@ public class EnemyController : MovingObject {
 		}
 	}
 
-	public void Kill() {
+	public void Kill(float freezeDuration) {
 		GameObject obj = Instantiate (deathFX);
 		obj.transform.position = transform.position;
-		Destroy (gameObject);
+
+        StartCoroutine(FreezeFrame(freezeDuration));
 	}
+
+    private IEnumerator FreezeFrame(float freezeDuration)
+    {
+        float currentTimeScale = Time.timeScale;
+        Time.timeScale = 0f;
+
+        yield return new WaitForSecondsRealtime(freezeDuration);
+
+        Time.timeScale = currentTimeScale;
+        Destroy(gameObject);
+    }
 }
